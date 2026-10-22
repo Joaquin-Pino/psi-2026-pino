@@ -16,3 +16,8 @@ CMD ["pytest", "-v"]
 FROM base AS runtime
 ENTRYPOINT ["psi-demo"]
 CMD ["--salida", "/out/demo.png"]
+
+FROM dev AS notebook
+RUN pip install ".[notebook]"
+EXPOSE 8888
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/app/notebooks"]

@@ -12,3 +12,12 @@ services:
       context: .
       target: dev
     image: psi-lab:dev
+  notebook:
+    build:
+      context: .
+      target: notebook
+    image: psi-lab:notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
