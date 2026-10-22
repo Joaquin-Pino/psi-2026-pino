@@ -1,0 +1,14 @@
+services:
+  demo:
+    build:
+      context: .
+      target: runtime
+    image: psi-lab:runtime
+    volumes:
+      - ./out:/out
+
+  test:
+    build: 
+      context: .
+      target: dev
+    image: psi-lab:dev
